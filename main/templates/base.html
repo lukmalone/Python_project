@@ -23,7 +23,7 @@
               <li class="nav-item active"> <a class="navbar-brand" href="{% url 'index' %}">Home</a></li>
               <li class="nav-item active"> <a class="navbar-brand" href="{% url 'category_list' %}">Categories</a></li>
               <li class="nav-item active"> <a class="navbar-brand" href="{% url 'products' %}">Product selection</a></li>
-              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'favorites' %}">Favourites</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'favorites' %}">Favorites</a></li>
               <li class="nav-item active"> <a class="navbar-brand" href="{% url 'profile' %}">{{ user.username }}</a></li>
               <li class="nav-item active"> <a class="navbar-brand" href="{% url 'logout'%}?next=/main">Log out</a></li>
               {% else %}

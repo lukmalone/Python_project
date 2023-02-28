@@ -70,11 +70,16 @@ nav a {
   width: 100%;
 }
 .col-sm-10 {
-
   margin-left: 0 !important;
   margin-right: 0 !important;
   padding: 0;
+}
 
+.col-md-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container-index {
@@ -115,9 +120,35 @@ padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
   min-height: 100% ;
   width:100%;
   margin: 0;
+}
+
+.container_category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  min-height: 100% ;
+  width:100%;
+  margin: 0;
+}
+
+.container_register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.register_flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card {
@@ -202,7 +233,7 @@ padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 550px;
   /* min-height: 100% ; */
   width:100%;
   margin: 0;
