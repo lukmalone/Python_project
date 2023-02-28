@@ -108,6 +108,19 @@ padding: 0;
   align-items: center;
 }
 
+
+.favorite_link a:visited {
+  color: black !important;
+}
+
+.favorite_link a:active {
+  color: black !important;
+}
+
+.favorite_link {
+  font-weight: bold;
+  color: #497174 !important;
+}
 .social {
   display: flex;
   flex-direction: row;

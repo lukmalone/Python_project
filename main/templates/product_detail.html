@@ -10,7 +10,7 @@
           {% else %}
             <img src="{% static 'pictures/no-image.png' %}" class="card-img-top">
         {% endif %}
-          <p><strong>Category:</strong> <a href="{% url 'category_detail' category_id=product.category.id %}"  class="link-dark">View {{ product.category.name }}</a></p>
+          <p><strong>Category:</strong> <a href="{% url 'category_detail' category_id=product.category.id %}"  class="favorite_link"> {{ product.category.name }}</a></p>
           <!-- <p><strong>Category:</strong> <a href="{% url 'category_detail' category_id %">{{ product.category }}</a></p> -->
           <!-- <p><strong>Category:</strong> <a href="{% url 'product-detail' product.category.pk %}">{{ product.category }}</a></p> -->
           <p><strong>Price:</strong>{{product.price}}</p>

@@ -16,7 +16,7 @@
                     <img src="{% static 'pictures/no-image.png' %}" class="card-img-top">
                   {% endif %}
               
-              <p class="card-text"><a href="{% url 'product-detail' product.id %}">{{product.title}} </a></p>
+              <p class="card-text"><a class="favorite_link" href="{% url 'product-detail' product.id %}">{{product.title}} </a></p>
               <p>{{product.category}}</p>
               <p>{{product.price}}</p>
             </div>

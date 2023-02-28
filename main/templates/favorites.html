@@ -9,26 +9,8 @@
                 {% for favorite in favorites %}
                     <img src="{{ favorite.product.image.url }}" alt="{{ favorite.product.title }}" class="card-img-top">
                     <!-- <img src="{{ favorite.image_url }}" alt="{{ favorite.product.title }}"> -->
-                    <p class="card-text"><a href="{%  url 'product_detail' product_id=favorite.product.id %}">{{ favorite.product.title }}</a></p>
-                    <!-- <p class="card-text"><a href="{% url 'product_detail' favorite.product.id %}">{{ favorite.product.title }}</a></p> -->
+                    <p class="card-text"><a href="{%  url 'product_detail' product_id=favorite.product.id %}" class="favorite_link">{{ favorite.product.title }}</a></p>
                 {% endfor %}
-                    <div class="pagination">
-                        <span class="step-links">
-                            {% if page_obj.has_previous %}
-                                <a href="?page=1">&laquo; first</a>
-                                <a href="?page={{ page_obj.previous_page_number }}">back</a>
-                            {% endif %}
-                    
-                            <span class="current">
-                                {{ page_obj.number }} {{ page_obj.paginator.num_pages }}
-                            </span>
-                    
-                            {% if page_obj.has_next %}
-                                <a href="?page={{ page_obj.next_page_number }}">forward</a>
-                                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                            {% endif %}
-                        </span>
-                    </div>  
             {% else %}
                 <p>You have no favorite products yet.</p>
             {% endif %}
