@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container_brand">
+    <div class="home_div">
+        <h4>{{ brand.name }}</h4>
+        <hr/>
+        <p>{{ brand.description }}</p>
+        </hr>
+        </br>
+        <h5>We have these {{  brand.name }} :</h5>
+        {% for product in brand.books.all %}
+        <li>{{ Product.category }}</li> 
+        {% endfor %}
+    </div>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}

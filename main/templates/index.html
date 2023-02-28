@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+<html>
+<head></head>
+<body>
+<div class="container-index">
+  <div class="home_div">
+    <h2>We currently have:</h2>
+    <ul>
+      <li class="list-group-item"><strong>Brands:</strong> {{ brand_count }}</li>
+      <li class="list-group-item"><strong>Clothing:</strong> {{ product_count }}</li>
+    
+    </ul>
+  </div>
+</div>
+</body>
+<br><br><br><br><br>
+</html>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>My site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;800&display=swap');
+    </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">☰</button> 
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <div class="col-sm-2">
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'index' %}">Home</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'category_list' %}">Categories</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'products' %}">Product selection</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'favorites' %}">Favourites</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'profile' %}">{{ user.username }}</a></li>
+              <li class="nav-item active"> <a class="navbar-brand" href="{% url 'logout'%}?next=/main">Log out</a></li>
+              {% else %}
+                <li class="nav-item active"> <a class="navbar-brand" href="{% url 'login'%}?next={{request.path}}">Log in</a></li>
+                <li class="nav-item"><a class="navbar-brand" href="{% url 'register'%}">Register</a></li>
+            {% endif %}
+            {% load i18n %}
+              <div class="navbar-nav">
+                <li>
+                  <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
+                    <input type="text" name="q" id="q" required placeholder="Search">
+                    <!-- <input type="submit" value="Search"> -->
+                </form>
+                  <!-- <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
+                  <input name="query" class="form-control" type="text" placeholder="Search">
+                  </form> -->
+                </li>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+  </nav>
+  
+  <div class="img-div">
+    <!-- <img class="home-pic1" src="{% static 'pictures/home_pic3.jpg' %}" alt="My Image"> -->
+</div>
+  </header>
+  <br>
+    <div class="main_content">
+      <div class="col-sm-10">
+        {% block content %}{% endblock %}</div>
+    </div>
+    <br>
+    <br>
+    <section class="bottom-menu">
+      <div class="about">
+        <nav class="navbar navbar-#497174 bg-#497174">
+          <div class="container-fluid">
+            <ul>
+              <li><a class="navbar-brand" href="#">About</a></li>
+              <li><a class="navbar-brand" href="#">Contact</a></li>
+              <li><a class="navbar-brand" href="#">Terms of Use</a></li>
+              <li><a class="navbar-brand" href="#">Privacy Policy</a></li>
+            </ul>
+            <!-- <div class="social">
+              <img src="{% static 'pictures/facebook.png' %}" alt="social" class="d-inline-block align-text-top">
+              <img src="/static/pictures/instagram.png" alt="social" class="d-inline-block align-text-top">
+              <img src="/static/pictures/twitter.png" alt="social" class="d-inline-block align-text-top">
+            </div> -->
+        </div>
+        </nav>
+        <footer>© Your Website 2023. All Rights Reserved.</footer>
+      </div>
+    </section>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" class="img-fluid" alt="Responsive image"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" class="img-fluid" alt="Responsive image"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"class="img-fluid" alt="Responsive image"></script>
+   
+</body>
+</html>
+

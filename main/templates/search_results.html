@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container_brand">
+    <div class="home_div">
+      <div class="col-md-4">
+            <h1>Search Results for "{{ query }}"</h1>
+
+            {% if categories %}
+                <h2>Categories</h2>
+                <ul>
+                    {% for category in categories %}
+                        <li><a href="{% url 'category_detail' category_id=category.id %}">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if products %}
+                <h2>Products</h2>
+                <ul>
+                    {% for product in products %}
+                        <li><a href="{% url 'product_detail' product_id=product.id %}">{{ product.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if not categories and not products %}
+                <p>No results found.</p>
+            {% endif %}
+            <br><br>
+            <br><br>
+            <br><br>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="container_brand">
+    <div class="home_div">
+      <div class="col-md-4">
+        <h1>{{ product.title }}</h1>
+        {% if product.cover %}
+            <img src="{{ product.cover.url }}" class="card-img-top" alt="...">
+          {% else %}
+            <img src="{% static 'pictures/no-image.png' %}" class="card-img-top">
+        {% endif %}
+          
+          <p><strong>Category:</strong> <a href="{% url 'category' category.id %">{{ category.name }}</a></p>
+          <!-- <p><strong>Category:</strong> <a href="{% url 'product-detail' product.category.pk %}">{{ product.category }}</a></p> -->
+          <p><strong>Price:</strong>{{product.price}}</p>
+          <!-- <p><strong>Brand:</strong> {{ product.created_by.all|join:", " }}</p>   -->
+          <p><strong>Description:</strong> {{ product.description }}</p>
+          <form action="{% url 'add_to_favorites' product.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Add to favorites</button>
+          </form>
+          </br>
+            <h4>Reviews:</h4>
+            {% if product.productreview_set.all %}
+              {% for review in product.productreview_set.all %}
+                <strong>{{  review.reviewer  }}</strong>, <em>{{ review.date_created }}</em>
+                <p>{{ review.content }}</p>
+                <hr>
+              {% endfor %}
+            {% else %}
+              <p>Product doesn't have reviews</p>
+            {% endif %}
+        </div>
+          </br>
+          {% if user.is_authenticated %}
+          <div class="fieldWrapper">
+            <hr> 
+            <form action="" method="post">
+              {% csrf_token %}
+              {{ form.content }}
+              <br>
+              <input type="submit" value="Save">
+            </form>
+          </div>
+    </div>
+  </div>
+  {% endif %}
+{% endblock %}

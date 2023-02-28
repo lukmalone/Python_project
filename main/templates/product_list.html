@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container_brand">
+  <div class="home_div">
+    <h1>Product list</h1>
+    <!-- {% if products %} -->
+    <div class="row">
+      <!-- <div class="col-md-7 card card-body p-4"> -->
+          {% for product in products %}
+          <div class="col-md-4 d-flex align-items-stretch">
+            <div class="card mb-4 shadow-sm">
+                  {% if product.cover %}
+                    <img src="{{ product.cover.url }}" class="card-img-top" alt="...">
+                  {% else %}
+                    <img src="{% static 'pictures/no-image.png' %}" class="card-img-top">
+                  {% endif %}
+              
+              <p class="card-text"><a href="{% url 'product-detail' product.id %}">{{product.title}} </a></p>
+              <p>{{product.category}}</p>
+              <p>{{product.price}}</p>
+            </div>
+          </div>
+          {% endfor %}
+    </div>
+        <div class="pagination">
+          <span class="step-links">
+              {% if page_obj.has_previous %}
+                  <a href="?page=1">&laquo; first</a>
+                  <a href="?page={{ page_obj.previous_page_number }}">back</a>
+              {% endif %}
+      
+              <span class="current">
+                  {{ page_obj.number }} {{ page_obj.paginator.num_pages }}
+              </span>
+      
+              {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}">forward</a>
+                  <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+          </span>
+      </div>       
+        {% else %}
+          <p>No products</p>
+      {% endif %}
+  </div>
+</div>
+{% endblock %}
