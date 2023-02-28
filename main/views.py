@@ -32,12 +32,12 @@ def search(request):
 def index(request):
     product_count = Product.objects.all().count()
     # available_instances_available = Instance.objects.filter(status='av').count()
-    brand_count = Category.objects.all().count()
+    category_count = Category.objects.all().count()
     num_visits = request.session.get('num_visits', 1)
     request.session['num_visits'] = num_visits + 1
     context = {
         'product_count': product_count,
-        'brand_count': brand_count,
+        'category_count': category_count,
         'num_visits': num_visits,
     }
     return render(request, 'index.html', context=context)
