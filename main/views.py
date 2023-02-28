@@ -153,6 +153,7 @@ def category_detail(request, category_id):
     category = Category.objects.get(id=category_id)
     products = Product.objects.filter(category=category)
     context = {'category': category, 'products': products}
+    category = get_object_or_404(Category, id=category_id)
     return render(request, 'category_detail.html', context)
 
 class ProductCreateView(CreateView):
