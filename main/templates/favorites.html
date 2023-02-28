@@ -9,7 +9,8 @@
                 {% for favorite in favorites %}
                     <img src="{{ favorite.product.image.url }}" alt="{{ favorite.product.title }}" class="card-img-top">
                     <!-- <img src="{{ favorite.image_url }}" alt="{{ favorite.product.title }}"> -->
-                    <p class="card-text"><a href="{% url 'product_detail' favorite.product.id %}">{{ favorite.product.title }}</a></p>
+                    <p class="card-text"><a href="{%  url 'product_detail' product_id=favorite.product.id %}">{{ favorite.product.title }}</a></p>
+                    <!-- <p class="card-text"><a href="{% url 'product_detail' favorite.product.id %}">{{ favorite.product.title }}</a></p> -->
                 {% endfor %}
                     <div class="pagination">
                         <span class="step-links">
