@@ -4,12 +4,19 @@
 <div class="container_brand">
     <div class="home_div">
         <h1>Categories</h1>
-        <div class="tab-content">
+        <div class="row">
                 {% for category in categories %}
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" style="width: 20rem">
+                    <div class="card-block">
+                        <ul class="list-group list-group-flush" id="category_list">
+                            <li><a class="list-group-item list-group-item-action" href="{% url 'category_detail' category_id=category.id %}">{{ category.name }}</a></li>
+                        </ul>
+                    </div>
+  
+                <!-- <div class="card mb-4 shadow-sm">
                     <ul class="list-group list-group-flush" id="category_list">
                         <li><a class="list-group-item list-group-item-action" href="{% url 'category_detail' category_id=category.id %}">{{ category.name }}</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
                 {% endfor %}
         </div>

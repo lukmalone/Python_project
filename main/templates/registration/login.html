@@ -13,7 +13,7 @@
       {% endif %}
     {% endif %}
     <div class="form-outline mb-4">
-      <form method="post" action="{% url 'login' %}">
+      <form class="login" method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <table>
           
@@ -26,12 +26,12 @@
             <td>{{ form.password }}</td>
           </tr>
         </table>
-        <input type="submit" value="Login" />
+        <input class="favorite_button" type="submit" value="Login" />
         <input type="hidden" name="next" value="{{ next }}" />
       </form>
     </div>
     
-    <p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+    <p><a class="list-group-item list-group-item-action" href="{% url 'password_reset' %}">Forgot password?</a></p>
   </div>
 </div>
 {% endblock %}

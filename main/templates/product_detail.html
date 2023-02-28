@@ -11,14 +11,12 @@
             <img src="{% static 'pictures/no-image.png' %}" class="card-img-top">
         {% endif %}
           <p><strong>Category:</strong> <a href="{% url 'category_detail' category_id=product.category.id %}"  class="favorite_link"> {{ product.category.name }}</a></p>
-          <!-- <p><strong>Category:</strong> <a href="{% url 'category_detail' category_id %">{{ product.category }}</a></p> -->
-          <!-- <p><strong>Category:</strong> <a href="{% url 'product-detail' product.category.pk %}">{{ product.category }}</a></p> -->
           <p><strong>Price:</strong>{{product.price}}</p>
           <!-- <p><strong>Brand:</strong> {{ product.created_by.all|join:", " }}</p>   -->
           <p><strong>Description:</strong> {{ product.description }}</p>
           <form action="{% url 'add_to_favorites' product.id %}" method="post">
             {% csrf_token %}
-            <button type="submit">Add to favorites</button>
+            <button class="favorite_button" type="submit">Add to favorites</button>
           </form>
           </br>
             <h4>Reviews:</h4>
@@ -40,7 +38,7 @@
               {% csrf_token %}
               {{ form.content }}
               <br>
-              <input type="submit" value="Save">
+              <input class="favorite_button" type="submit" value="Save">
             </form>
           </div>
     </div>
